@@ -1,0 +1,83 @@
+/* In this CSS file should be rules or information that are relevant 
+for any page on this site. */
+
+:root {
+    --main-bg-color: rgb(200, 211, 217);
+    --main-text-color: rgb(58, 40, 0);
+    --secondary-bg-color: rgb(18, 64, 111);
+    --secondary-text-color: rgb(138, 177, 235);
+    --alarm-bg-color: rgb(239, 79, 135);
+    --alarm-text-color: rgb(209, 250, 202);
+    
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+}
+
+.content-wrapper {
+    margin: 3em auto;
+    width: 80%;
+}
+
+
+footer{
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+}
+
+.chinPokos{
+    background-color: var(--secondary-bg-color);
+    margin: 3em auto;
+    padding: 2ch 3ch;
+    overflow: hidden;
+    width: 60ch;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.chinPokos h1{
+    color: white;
+}
+
+.chinPokos p{
+    color: white;
+}
+
+.error{
+    color: red;
+    background-color: white;
+    text-align: center;
+    margin: auto;
+}
+
+img{
+    display: inline-block;
+
+}
+
+.signup{
+    background-color: var(--secondary-text-color);
+    border-radius: 10px;
+    color: var(--main-text-color);
+    padding: 10px 1em;
+    margin: 5px;
+    width: fit-content;
+}
+
+.login{
+    background-color: var(--secondary-text-color);
+    border-radius: 10px;
+    color: var(--main-text-color);
+    padding: 10px 1em;
+    margin: 5px;
+    width: fit-content;
+}
+
+.loginBtn{
+    display: inline-block;
+}
+
+.homeTag{
+    display: inline-block;
+}

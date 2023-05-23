@@ -1,0 +1,33 @@
+.navbar {
+    border-bottom: 1px solid;
+    padding: 5px 2em 10px 2em;
+}
+.navbar ul {
+    display: inline-block;
+    width: max-content;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    width: 49%;
+    text-align: right;
+}
+
+.navbar li {
+    float: right;
+}
+
+.navbar li a {
+    display: block;
+    padding: 1em 1em;
+    text-decoration: none;
+}
+
+.navbar .logo {
+    display: inline-block;
+    width: 49%;
+}
+
+.navbar .logo h1{
+    margin: 0;
+}

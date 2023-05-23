@@ -1,0 +1,48 @@
+<%-include('./partials/header') %>
+    <script src="/JS/login.js" defer></script>
+    
+    <form action="/login" method="get" id="loginform">
+        <h1>Identify yourself!</h1>
+        <input type="text" name="username" id="username" placeholder="email">
+        <input type="password" name="password" id="password" placeholder="password">
+        <input type="submit" value="Log in!">
+        <a href="/signup">Create new User</a>
+        <br>
+        <p class="error"></p>
+        
+    </form>
+<%-include('./partials/footer') %>
+
+
+<script>
+    const form = document.querySelector("form")
+
+    form.addEventListener("submit", async e =>{
+        e.preventDefault()
+        const email = form.username.value;
+        const password = form.password.value; 
+        const pError = document.querySelector(".error")
+
+        //sender data for authentisering
+            const res = await fetch("/login", {
+                method: "post",
+                body: JSON.stringify({email, password}),
+                headers: {"Content-Type": "application/json"}
+            })
+        //venter på data
+
+        const data = await res.json()
+        console.log(data)
+        
+        if(!res.ok){
+            console.log(data.error);
+            pError.innerText = data.error
+        }
+        
+        if(res.ok){
+            location.assign(`/home/${data.email}`)
+        }
+
+       
+    })
+</script>

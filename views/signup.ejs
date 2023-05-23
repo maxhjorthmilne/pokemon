@@ -1,0 +1,42 @@
+<%-include('./partials/header')%>
+    <!-- <script src="/JS/createuser.js" defer></script> -->
+
+    <form action="/signup" method="post" id="createuserform">
+        <h1>Register your credentials!</h1>
+        <input type="text" name="username" id="username" placeholder="username">
+        <input type="password" name="password" id="password" placeholder="password">
+        <input type="submit" value="Create User!">
+        <p class="error"></p>
+    </form>
+    <%-include('./partials/footer')%>
+
+        <script>
+            const form = document.querySelector("form")
+
+            form.addEventListener("submit", async e => {
+                e.preventDefault()
+                const email = form.username.value;
+                const password = form.password.value;
+                const pError = document.querySelector(".error")
+                console.log(email, password)
+
+                //sender data for authentisering
+
+                const res = await fetch("/signup", {
+                    method: "POST",
+                    body: JSON.stringify({ email, password }),
+                    headers: { "Content-Type": "application/json" }
+                })
+                result = await res.json();
+                console.log("got res")
+                if (!res.ok) {
+                    console.log(result.error);
+                    pError.innerText = result.error
+                }
+                if (res.ok) {
+                    console.log(result);
+                    location.assign("/")
+                }
+
+            })
+        </script>

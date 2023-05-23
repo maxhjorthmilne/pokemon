@@ -1,0 +1,48 @@
+<%-include('./partials/header')%>
+<form id="chinForm">
+    <h1>Update the Chinpokomon!</h1>
+    <input type="text" name="name" id="name" placeholder="name"value="<%= chinpokomon.name %>">
+    <input type="text" name="ability1" id="ability1" placeholder="ability 1" value="<%= chinpokomon.ability1 %>">
+    <input type="text" name="ability2" id="ability2" placeholder="ability 2"value="<%= chinpokomon.ability2 %>">
+    <input type="text" name="ability3" id="ability3" placeholder="ability 3"value="<%= chinpokomon.ability3 %>">
+    <input type="submit" name="creator" data-id="<%= chinpokomon._id %>">
+</form>
+
+
+<%-include('./partials/footer')%>
+<script>
+    const form = document.querySelector("form")
+    form.addEventListener("submit", async e =>{
+        e.preventDefault()
+        const name = form.name.value;
+        const ability1 = form.ability1.value; 
+        const ability2 = form.ability2.value; 
+        const ability3 = form.ability3.value;
+        const id = form.creator.dataset.id;
+        
+        console.log(id)
+
+        //sender data for authentisering
+        try{
+            const res = await fetch("/updatePoko", {
+                method: "POST",
+                body: JSON.stringify({ id, name, ability1, ability2, ability3 }),
+                headers: {"Content-Type": "application/json"}
+            })
+        //venter på data
+
+        const data = await res.json()
+        alert("Chinpokomon updated!")
+        form.reset()
+
+
+
+        }
+        catch(err){
+            console.log(err)
+        }
+       
+    })
+
+    
+</script>

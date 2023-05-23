@@ -1,0 +1,18 @@
+<%-include('./partials/header') %>
+<h1>Everyones Chinpokomon:</h1>
+<% if(chinPokos.length>0){ %>
+
+    <%let i = 0; chinPokos.forEach((chinPoko)=>{ if (i < 10){%>
+    
+    <div class="chinPokos">
+        <h1><%= chinPoko.name %></h1>
+        <p> Ability 1: <%= chinPoko.ability1 %></p>
+        <p> Ability 2: <%= chinPoko.ability2 %></p>
+        <p> Ability 3: <%= chinPoko.ability3 %></p>
+        <p> Creator: <%= chinPoko.creator %></p>
+        <img src="https://placehold.co/300x300" alt="">
+    </div>
+   <% i++}}) %>
+
+<% } %>
+<%-include('./partials/footer')%>
